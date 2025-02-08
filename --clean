@@ -1,0 +1,94 @@
+--- Startup times for process: Primary/TUI ---
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.000  000.000: --- NVIM STARTING ---
+000.162  000.162: event init
+000.520  000.358: early init
+001.068  000.548: locale set
+001.116  000.047: init first window
+001.409  000.293: inits 1
+001.415  000.006: window checked
+001.520  000.105: parsing arguments
+002.129  000.030  000.030: require('vim.shared')
+002.193  000.031  000.031: require('vim.inspect')
+002.229  000.028  000.028: require('vim._options')
+002.231  000.098  000.040: require('vim._editor')
+002.232  000.162  000.034: require('vim._init_packages')
+002.234  000.552: init lua interpreter
+002.554  000.320: --- NVIM STARTED ---
+
+--- Startup times for process: Embedded ---
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.000  000.000: --- NVIM STARTING ---
+000.052  000.052: event init
+000.144  000.092: early init
+000.366  000.221: locale set
+000.393  000.028: init first window
+000.602  000.208: inits 1
+000.613  000.011: window checked
+000.697  000.084: parsing arguments
+001.037  000.027  000.027: require('vim.shared')
+001.092  000.026  000.026: require('vim.inspect')
+001.123  000.024  000.024: require('vim._options')
+001.125  000.086  000.036: require('vim._editor')
+001.126  000.141  000.028: require('vim._init_packages')
+001.127  000.289: init lua interpreter
+002.422  001.295: expanding arguments
+002.432  000.010: inits 2
+002.627  000.195: init highlight
+002.628  000.001: waiting for UI
+002.719  000.092: done waiting for UI
+002.724  000.004: clear screen
+002.780  000.006  000.006: require('vim.keymap')
+003.307  000.581  000.575: require('vim._defaults')
+003.309  000.004: init default mappings & autocommands
+003.838  000.244  000.244: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/ftplugin.vim
+004.062  000.180  000.180: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/indent.vim
+004.663  000.507  000.507: sourcing /Users/zrfl/.config/nvim/init.lua
+004.670  000.431: sourcing vimrc file(s)
+004.975  000.264  000.264: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/filetype.lua
+005.441  000.216  000.216: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/syntax/synload.vim
+005.494  000.471  000.255: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/syntax/syntax.vim
+006.358  000.255  000.255: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/plugin/gzip.vim
+007.090  000.242  000.242: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+007.119  000.726  000.483: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/plugin/matchit.vim
+007.314  000.160  000.160: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/plugin/matchparen.vim
+007.656  000.306  000.306: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/plugin/netrwPlugin.vim
+007.871  000.172  000.172: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/plugin/rplugin.vim
+008.095  000.183  000.183: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/plugin/shada.vim
+008.556  000.419  000.419: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/plugin/spellfile.vim
+008.773  000.169  000.169: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/plugin/tarPlugin.vim
+008.983  000.163  000.163: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/plugin/tutor.vim
+009.609  000.582  000.582: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/plugin/zipPlugin.vim
+009.720  000.064  000.064: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/plugin/editorconfig.lua
+009.844  000.078  000.078: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/plugin/man.lua
+010.049  000.164  000.164: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/plugin/osc52.lua
+010.201  000.111  000.111: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/plugin/tohtml.lua
+010.224  001.267: loading rtp plugins
+010.311  000.087: loading packages
+010.502  000.191: loading after plugins
+010.507  000.005: inits 3
+011.459  000.952: reading ShaDa
+011.527  000.068: opening buffers
+011.539  000.012: BufEnter autocommands
+011.540  000.001: editing files in windows
+017.058  005.250  005.250: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/autoload/netrw.vim
+017.441  000.169  000.169: sourcing /Users/zrfl/.local/share/nvim/.netrwhist
+018.933  000.690  000.690: require('vim.filetype')
+021.012  001.456  001.456: require('vim.filetype.detect')
+023.562  000.337  000.337: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/syntax/netrw.vim
+025.054  000.139  000.139: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/syntax/netrw.vim
+028.765  000.140  000.140: sourcing /opt/homebrew/Cellar/neovim/0.10.3/share/nvim/runtime/syntax/netrw.vim
+028.828  009.108: VimEnter autocommands
+028.829  000.001: UIEnter autocommands
+028.829  000.001: before starting main loop
+2233.043  2204.213: first screen update
+2233.050  000.007: --- NVIM STARTED ---
+
