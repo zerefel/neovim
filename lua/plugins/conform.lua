@@ -11,9 +11,7 @@ return {
         args = { "format", "--dialect=postgres", "-" },
         stdin = true,
         cwd = function()
-          return vim.fn.getcwd() -- Use current working directory
-          -- Or return a specific path:
-          -- return "/path/to/your/project"
+          return vim.fn.getcwd()
         end,
       },
     },
