@@ -11,3 +11,7 @@ vim.expandtab = 4
 vim.opt.colorcolumn = "80"
 -- block cursor in insert mode
 vim.opt.guicursor = ""
+
+-- vim.g.loaded_matchparen = 1
+-- vim.opt.cursorline = false
+-- vim.opt.cursorcolumn = false
