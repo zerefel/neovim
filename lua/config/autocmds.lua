@@ -7,6 +7,15 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
+-- Disable auto-format on save for JSON files to preserve blank lines
+-- Manual format with <leader>cf still works
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "json", "jsonc" },
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})
+
 -- remove the default format on save autocommand
 -- pcall(vim.api.nvim_del_augroup_by_name, "lazyvim_format_on_save")
 --
