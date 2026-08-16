@@ -3,8 +3,9 @@
 tmux configuration and the "attention notification" setup that pairs with
 Claude Code running in multiple panes. Two complementary signals:
 
-- **Orange window flag** (tmux status bar): any pane ringing the terminal bell
-  flags its window bold orange until visited.
+- **Pulsing orange window flag** (tmux status bar): any pane ringing the
+  terminal bell flags its window (`!`) and slowly pulses it between the orange
+  highlight and a dimmed state until the window is visited.
 - **Contextual macOS notifications**: Claude Code hooks post
   "✋ Claude needs your permission to use X" (Ping sound) and
   "✅ Claude finished" (Glass sound) notifications naming the exact window.
@@ -19,6 +20,7 @@ Claude Code running in multiple panes. Two complementary signals:
 | `tmux.conf` | `~/.tmux.conf` | Main config (prefix `C-a`, vim keys, plugins, bell flag) |
 | `tmux-notify.sh` | `~/.tmux/tmux-notify.sh` | Posts a macOS notification with click-to-jump (target, message, sound, group) |
 | `tmux-notify-click.sh` | `~/.tmux/tmux-notify-click.sh` | Runs when the notification is clicked; focuses Ghostty and switches every tmux client to the target window |
+| `tmux-bell-flash.sh` | `~/.tmux/tmux-bell-flash.sh` | Started by the `alert-bell` hook; pulses `window-status-bell-style` every second while any window has an unvisited bell flag |
 | `claude-tmux-notify-hook.sh` | `~/.claude/hooks/tmux-notify-hook.sh` | Claude Code Notification/Stop hook: builds the contextual message, detects its own pane/visibility, calls `tmux-notify.sh` |
 
 ## Restore on a new machine
@@ -27,9 +29,9 @@ Claude Code running in multiple panes. Two complementary signals:
 # 1. Config + scripts
 cp tmux.conf ~/.tmux.conf
 mkdir -p ~/.tmux ~/.claude/hooks
-cp tmux-notify.sh tmux-notify-click.sh ~/.tmux/
+cp tmux-notify.sh tmux-notify-click.sh tmux-bell-flash.sh ~/.tmux/
 cp claude-tmux-notify-hook.sh ~/.claude/hooks/tmux-notify-hook.sh
-chmod +x ~/.tmux/tmux-notify*.sh ~/.claude/hooks/tmux-notify-hook.sh
+chmod +x ~/.tmux/tmux-*.sh ~/.claude/hooks/tmux-notify-hook.sh
 
 # 2. Plugin manager (then prefix+I inside tmux to install plugins)
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -97,11 +99,14 @@ sessions pick up settings changes (or open `/hooks` once in a running one).
 
 ## How the notification chain works
 
-**Orange flag:** a bell (`\a`) in any pane + `monitor-bell on` +
+**Pulsing orange flag:** a bell (`\a`) in any pane + `monitor-bell on` +
 `bell-action any` flags the window; `window-status-bell-style` (set *after*
 tpm so the tmux-power theme can't override it) renders it bold orange. The
-tmux `alert-bell` hook is deliberately empty — desktop notifications come
-from the Claude hooks below, so other tools' bells only flag.
+`alert-bell` hook starts `tmux-bell-flash.sh` in the background
+(single-instance via pidfile), which toggles that style between highlight
+and dim once per second until no window has a bell flag left, then restores
+the steady highlight. Desktop notifications do NOT come from this hook —
+they come from the Claude hooks below, so other tools' bells only flag/pulse.
 
 **Desktop notifications:**
 
